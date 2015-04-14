@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    -webkit-transition: background-color 0.5s;
 }
 
 .container {
@@ -42,4 +43,9 @@ hr {
 
 .chat-field {
     margin-top: 20px;
+}
+
+.login {
+    margin-top: 10px;
+    text-align: center;
 }

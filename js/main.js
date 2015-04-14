@@ -3,21 +3,47 @@ var chatRoom = root.child('chat');
 
 var bodyTemplate = Handlebars.compile($('#body-template').html());
 var username = 'Guest';
+var userAvatarUrl = 'http://f.cl.ly/items/2M1K0Y1y2T353x0X0w05/minion_mario.jpg';
 var messages = {};
 
 $(document).ready(function () {
     renderTemplate();
-    setupMessageListener();
     setupMessageLoader();
+    attemptLogin();
 });
 
+function attemptLogin() {
+    var user = root.getAuth();
+    if (user) {
+        console.log(user);
+        loginWithAuthData(user);
+    }
+}
+
+var _firstLoadCompleted = false;
 function setupMessageLoader() {
     chatRoom.on('value', function(snapshot) {
         messages = snapshot.val();
         renderTemplate();
+
+        scrollToBottomOfChatWindow();
+
+        if (_firstLoadCompleted) {
+            var ids = Object.keys(messages);
+
+            if (ids.length == 0) {
+                return;
+            }
+
+            var lastMessage = messages[ids[ids.length - 1]];
+            if (lastMessage.message_text == '/disco') {
+                runDisco();
+            }
+        } else {
+            _firstLoadCompleted = true;
+        }
     });
 }
-
 
 function renderTemplate() {
     var context = {
@@ -26,10 +52,10 @@ function renderTemplate() {
     };
 
     $('#body-template-view').html(bodyTemplate(context));
-    setupMessageListener();
+    setupTemplateListeners();
 }
 
-function setupMessageListener() {
+function setupTemplateListeners() {
     $('#chat-box').focus().keypress(function (e) {
         if (e.which == 13) {
             var message = $(e.target).val();
@@ -42,11 +68,23 @@ function setupMessageListener() {
             $(e.target).val('');
         }
     });
+
+    $('#fb-login').click(function() {
+        root.authWithOAuthPopup('facebook', function(err, authData) {
+            loginWithAuthData(authData);
+        });
+    });
+}
+
+function loginWithAuthData(authData) {
+    username = authData.facebook.displayName;
+    userAvatarUrl = authData.facebook.cachedUserProfile.picture.data.url;
+    renderTemplate();
 }
 
 function sendMessage(msg) {
     var msgObj = {
-        avatar_url: 'http://placehold.it/48x48',
+        avatar_url: userAvatarUrl,
         message_author: username,
         message_text: msg
     };

@@ -20,7 +20,7 @@
     <h2 class=" text-center">Firebase Chatroom</h2>
 
     <div class="row chat-row">
-        <div class="col-md-8 col-md-push-2 chat-container">
+        <div class="col-md-8 col-md-push-2 chat-container" id="chat-container">
             <!-- Chat messages! -->
             {{#each messages}}
                 <div class="message-container">
@@ -38,9 +38,12 @@
                 <span class="input-group-addon">{{username}}: </span>
                 <input type="text" id="chat-box" class="form-control" placeholder="Enter your message!">
                 <span class="input-group-btn">
-                    <button class="btn btn-primary">Send</button>
+                    <button class="btn btn-success">Send</button>
                 </span>
             </div>
+        </div>
+        <div class="login col-md-8 col-md-push-2">
+            <button class="btn btn-primary" id="fb-login"><span class="glyphicon glyphicon-user"></span> Login with Facebook</button>
         </div>
     </div>
 </div>
@@ -51,6 +54,7 @@
 <script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
 <script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
 <script src="js/main.js"></script>
+<script src="js/extras.js"></script>
 
 </body>
 </html>
