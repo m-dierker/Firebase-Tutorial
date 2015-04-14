@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.chat-container {
+    border-radius: 10px;
+    border: 1px solid #adadad;
+    padding: 10px;
+    overflow: scroll;
+    height: 450px;
+}
+
+.message-container {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    float: left;
+}
+
+.message-content {
+    margin-left: 55px;
+}
+
+.message-author {
+    color: #bababa;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.chat-field {
+    margin-top: 20px;
+}

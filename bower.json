@@ -1,0 +1,23 @@
+{
+  "name": "Firebase Tutorial",
+  "version": "0.4.2",
+  "homepage": "https://github.com/mvd7793/Firebase-Tutorial",
+  "main": "index.html",
+  "authors": [
+    "Matthew Dierker <matthew.dierker@gmail.com>"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "~2.1.3",
+    "handlebars": "~3.0.0",
+    "firebase": "~2.2.4"
+  }
+}
