@@ -17,9 +17,9 @@ function runDisco() {
 function _runDiscoStep() {
     if (discoIdx == discoColors.length) {
         clearInterval(discoInterval);
-        $('body').css('background-color', 'white');
+        $('#chat-container').css('background-color', '');
     }
 
-    $('body').css('background-color', discoColors[discoIdx]);
+    $('#chat-container').css('background-color', discoColors[discoIdx]);
     discoIdx++;
 }

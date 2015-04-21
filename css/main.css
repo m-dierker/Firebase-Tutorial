@@ -1,7 +1,6 @@
 html, body {
     height: 100%;
     width: 100%;
-    -webkit-transition: background-color 0.5s;
     overflow-y: hidden;
 }
 
@@ -17,6 +16,8 @@ html, body {
     padding: 10px;
     overflow: scroll;
     height: 450px;
+    -moz-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
 }
 
 .message-container {
@@ -92,49 +93,29 @@ body.fireside {
     -webkit-animation: bounce 9s infinite;
 }
 
-@-webkit-keyframes bounce {
-    0% {
-        -webkit-transform: rotate(-10deg);
-    }
-
-    50% {
-        -webkit-transform: rotate(-45deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(-10deg);
-    }
-}
-
-@-moz-keyframes bounce {
-    0% {
-        -moz-transform: rotate(-10deg);
-    }
-
-    50% {
-        -moz-transform: rotate(-45deg);
-    }
-
-    100% {
-        -moz-transform: rotate(-10deg);
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: rotate(-10deg);
-    }
-
-    50% {
-        transform: rotate(-45deg);
-    }
-
-    100% {
-        transform: rotate(-10deg);
-    }
-}
-
 .sidebar {
     display: none;
+}
+
+.c-container {
+    display: none;
+}
+
+.sponsor .c-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: block;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    -webkit-animation: sponsor 6s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.sponsor .c-container img {
+    -webkit-animation: sponsorimg 6s;
+    -webkit-animation-fill-mode: forwards;
 }
 

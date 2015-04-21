@@ -95,6 +95,5 @@ function sendMessage(msg) {
 
 Handlebars.registerHelper('getDateString', getDateString);
 function getDateString(timestamp) {
-    console.log('timestamp', timestamp);
     return moment(new Date(timestamp)).fromNow();
 }
