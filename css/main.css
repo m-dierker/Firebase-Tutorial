@@ -2,10 +2,13 @@ html, body {
     height: 100%;
     width: 100%;
     -webkit-transition: background-color 0.5s;
+    overflow-y: hidden;
 }
 
 .container {
     height: 100%;
+    z-index: 5;
+    position: relative;
 }
 
 .chat-container {
@@ -49,3 +52,89 @@ hr {
     margin-top: 10px;
     text-align: center;
 }
+
+/* Fireside */
+body.fireside {
+    background-image: url('/img/fireplace.gif');
+    background-size: 100% 100%;
+}
+
+.fireside h2 {
+    color: rgb(242, 137, 137);
+}
+
+.fireside .chat-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 5;
+}
+
+.fireside .message-container {
+    color: white;
+}
+
+.fireside input {
+    background-color: black;
+    color: white;
+}
+
+.fireside .input-group-addon {
+    background-color: black;
+    color: #bababa;
+}
+
+.fireside .sidebar {
+    display: block;
+    position: absolute;
+    left: -320px;
+    top: 300px;
+    width: 600px;
+    z-index: 1;
+    -webkit-animation: bounce 9s infinite;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        -webkit-transform: rotate(-10deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(-45deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(-10deg);
+    }
+}
+
+@-moz-keyframes bounce {
+    0% {
+        -moz-transform: rotate(-10deg);
+    }
+
+    50% {
+        -moz-transform: rotate(-45deg);
+    }
+
+    100% {
+        -moz-transform: rotate(-10deg);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+.sidebar {
+    display: none;
+}
+
