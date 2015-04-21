@@ -48,7 +48,7 @@ function setupMessageLoader() {
 function renderTemplate() {
     var context = {
         username: username,
-        messages: messages
+        messages: messages,
     };
 
     $('#body-template-view').html(bodyTemplate(context));
@@ -86,8 +86,15 @@ function sendMessage(msg) {
     var msgObj = {
         avatar_url: userAvatarUrl,
         message_author: username,
-        message_text: msg
+        message_text: msg,
+        timestamp: Firebase.ServerValue.TIMESTAMP
     };
 
     chatRoom.push(msgObj);
+}
+
+Handlebars.registerHelper('getDateString', getDateString);
+function getDateString(timestamp) {
+    console.log('timestamp', timestamp);
+    return moment(new Date(timestamp)).fromNow();
 }

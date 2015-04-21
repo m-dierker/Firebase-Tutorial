@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="fireside">
+<body>
 
 <div id="body-template-view"></div>
 
@@ -28,7 +28,7 @@
                     <img class="avatar" src="{{avatar_url}}">
                     <div class="message-content">
                         <div class="message-text">{{message_text}}</div>
-                        <div class="message-author">{{message_author}}</div>
+                        <div class="message-author">{{message_author}} | {{#getDateString timestamp}}{{/getDateString}}</div>
                     </div>
                 </div>
                 <hr>
@@ -55,6 +55,7 @@
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="bower_components/moment/moment.js"></script>
 <script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
 <script src="js/main.js"></script>
 <script src="js/extras.js"></script>
