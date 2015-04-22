@@ -2,6 +2,10 @@ function scrollToBottomOfChatWindow() {
     $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
 }
 
+$(document).ready(function() {
+    hideSponsorWindowOnFinish();
+});
+
 var discoIdx = 0;
 var discoInterval;
 // G-o-o-g-l-e!
@@ -22,4 +26,10 @@ function _runDiscoStep() {
 
     $('#chat-container').css('background-color', discoColors[discoIdx]);
     discoIdx++;
+}
+
+function hideSponsorWindowOnFinish() {
+    setTimeout(function() {
+        $('.c-container').hide();
+    }, 6000);
 }
